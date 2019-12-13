@@ -6,6 +6,7 @@ html {
 body{
     margin-left: 20px;
     font-family: 'News Cycle', sans-serif;
+    
 }
 
 .titulo-index{
@@ -76,14 +77,8 @@ nav a {
     text-decoration: none;
 }
 
-.div-img {
-    align-items: center;
-    margin-inline: 40%;
-    padding-top: 10px;
-
-}
-
 #img {
-    height: 100%;
-    widows: 100%;
+    display: block;
+    margin: auto;
+    width: 100%;
 }

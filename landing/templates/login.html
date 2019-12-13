@@ -3,12 +3,22 @@
 {% block content %}
 
 <div class="container">
+    {% if some_flag %}
+        <div id="some_flag" title="Some Flag">
+            <p>E-mail ou senha inválidos</p>
+        </div>
+    {% endif %}
     <h1>Faça o seu login</h1>
-    <form action="." method="post">
+    <form action="" method="post">
         {% csrf_token %}
-        {{form}}
-        <input class="btn btn-primary" type="submit" value="Login">
+        <label for="email">Email: </label>
+        <input name="email" type="email" required>
+
+        <label for="senha">Senha: </label>
+        <input name="senha" type="password" required>
+        <input type="submit" id="botao" value="Logar">
     </form>
+    <a href="/alunos/cadastro">Cadastrar-se</a>
 </div>
 
 {% endblock %}
