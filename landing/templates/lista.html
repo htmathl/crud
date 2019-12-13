@@ -2,6 +2,12 @@
 {% load static %}
 {% block content %}
     <h1>Lista de suas frases e dúvida</h1>
+    {% if user.is_authenticated %}
+        <p class="logged-in-p">
+            Olá {{ user.username }} seja bem vindo, o que deseja fazer hoje? 
+            <span class="sair"><a href="{% url 'logout' %}">Sair</a></span>
+        </p>
+    {% endif %}
     <h6><a href="/alunos/cadastro">Voltar para cadastro</a></h6>
     {% for item in listar_frase %}
         <p>Nome do Aluno:{{item.nome}} </p>

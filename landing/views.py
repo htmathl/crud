@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Aluno, Usuario
+from django.views.decorators.http import require_POST
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
+
+def home(req):
+    return render(req, 'home.html', )
 
 def index(request):
     if request.method == 'POST':
@@ -31,4 +36,14 @@ def deletar(request, id):
         item.save()
         return redirect('/alunos/lista')
     return redirect('/')
-        
+
+@require_POST
+def entrar(request):
+    usuario_aux = User.objects.get(email=request.POST['email'])
+    usuario = authenticate(username=usuario_aux.username,
+                           password=request.POST["senha"])
+    if usuario is not None:
+        login(request, usuario)
+        return HttpResponseRedirect('/alunos/lista')
+
+    return HttpResponseRedirect('/conta/login')
