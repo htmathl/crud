@@ -43,7 +43,13 @@ def entrar(request):
         try:
             data_usuario.save()
         except:
-            return redirect('/alunos/lista')
+            listar_frase = Aluno.objects.filter(ativo=True).all()
+            args = {
+                'listar_frase': listar_frase,
+                'some_flag': True,
+                'email': data_usuario.email,
+            }
+            return render(request, 'lista.html', args)
         else:
             Usuario.objects.get(email=data_usuario.email).delete()
             

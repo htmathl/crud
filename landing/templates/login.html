@@ -2,23 +2,34 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
+<div class="text2">
     {% if some_flag %}
         <div id="some_flag" title="Some Flag">
-            <p>E-mail ou senha inválidos</p>
+            <ul style="padding-left: 10%; color: red;">
+                <li><b><p>E-mail ou senha inválidos</p></b></li>
+            </ul>
         </div>
     {% endif %}
-    <h1>Faça o seu login</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        <label for="email">Email: </label>
-        <input name="email" type="email" required>
-
-        <label for="senha">Senha: </label>
-        <input name="senha" type="password" required>
-        <input type="submit" id="botao" value="Logar">
-    </form>
-    <a href="/alunos/cadastro">Cadastrar-se</a>
+    <h1 style="padding-left: 10%;">Faça o seu login</h1>
+    <table>
+        <form action="" method="post">
+        <tr>
+            {% csrf_token %}
+            <td id="row2"><label for="email">Email: </label></td>
+            <td id="row1"><input name="email" type="email" required></td>
+        </tr>
+        <tr>
+            <td id="row2"><label for="senha">Senha: </label></td>
+            <td id="row1"> <input name="senha" type="password" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="row3"><input type="submit" id="botao" value="Logar"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="row3"><a href="/alunos/cadastro"><button type="button" id="botao2">Cadastrar-se</button></a></td>
+        </tr>
+        </form>
+    </table> 
 </div>
 
 {% endblock %}

@@ -3,6 +3,10 @@
 {% block content %}
     <h1>Lista de suas frases e dúvida</h1>
     <h6><a href="/alunos/cadastro">Voltar para cadastro</a></h6>
+    {% if some_flag %}
+        <p>Bem vindo, <strong>{{email}}</strong></p>
+    {% endif %}
+    <hr>
     {% for item in listar_frase %}
         <p>Nome do Aluno:{{item.nome}} </p>
         <p>Frase:{{item.frase}}</p>
